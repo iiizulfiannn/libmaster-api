@@ -25,12 +25,32 @@ module.exports = {
     return new Promise(function (resolve, reject) {
       const query = `SELECT 
             bor.id AS id, bor.date_of_borrow AS date_of_borrow, bor.date_of_return AS date_of_return,
-            bor.book_id AS book_id, bor.user_id AS user_id,
+            bor.book_id AS book_id, bor.user_id AS user_id, book.image AS image,
             book.title AS book_title, user.fullname AS user_fullname
             FROM borrow AS bor
             INNER JOIN books AS book ON bor.book_id = book.id
             INNER JOIN users AS user ON bor.user_id = user.id
-            WHERE bor.user_id=?`;
+            WHERE bor.user_id=? ORDER BY bor.date_of_borrow DESC`;
+      connection.query(query, id, function (error, result) {
+        if (!error) {
+          resolve(result);
+        } else {
+          reject(new Error(error));
+        }
+      });
+    });
+  },
+
+  getBorrowById: function (id) {
+    return new Promise(function (resolve, reject) {
+      const query = `SELECT 
+            bor.id AS id, bor.date_of_borrow AS date_of_borrow, bor.date_of_return AS date_of_return,
+            bor.book_id AS book_id, bor.user_id AS user_id, book.image AS image,
+            book.title AS book_title, user.fullname AS user_fullname
+            FROM borrow AS bor
+            INNER JOIN books AS book ON bor.book_id = book.id
+            INNER JOIN users AS user ON bor.user_id = user.id
+            WHERE bor.id=?`;
       connection.query(query, id, function (error, result) {
         if (!error) {
           resolve(result);

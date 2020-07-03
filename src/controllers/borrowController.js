@@ -1,5 +1,5 @@
-const borrowModel = require('../models/borrowModel');
-const helper = require('../helpers/index');
+const borrowModel = require("../models/borrowModel");
+const helper = require("../helpers/index");
 
 module.exports = {
   getAllBorrows: async function (request, response) {
@@ -18,7 +18,7 @@ module.exports = {
       const result = await borrowModel.getBorrow(id);
       return helper.response(response, 200, result);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return helper.response(response, 500, error);
     }
   },
@@ -26,8 +26,9 @@ module.exports = {
   addBorrow: async function (request, response) {
     try {
       const setData = request.body;
-      const result = await borrowModel.addBorrow(setData);
-      if (result) await borrowModel.updateBookToUnvailable(result.book_id)
+      let result = await borrowModel.addBorrow(setData);
+      if (result) await borrowModel.updateBookToUnvailable(result.book_id);
+      result = await borrowModel.getBorrowById(result.id);
       return helper.response(response, 200, result);
     } catch (error) {
       return helper.response(response, 500, error);
@@ -37,13 +38,13 @@ module.exports = {
   returnBook: async function (request, response) {
     try {
       const borrowId = request.body.borrowId;
-      const bookId = request.body.book_id
-      // console.log(borrowId, bookId)
-      let result = await borrowModel.returnBook(borrowId);
-      if (result) result = await borrowModel.updateBookToAvailable(bookId)
-      return helper.response(response, 200, result);
+      const bookId = request.body.book_id;
+      const result = await borrowModel.returnBook(borrowId);
+      if (result) await borrowModel.updateBookToAvailable(bookId);
+      const newResult = await borrowModel.getBorrowById(borrowId);
+      return helper.response(response, 200, newResult);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return helper.response(response, 500, error);
     }
   },
@@ -67,5 +68,5 @@ module.exports = {
     } catch (error) {
       return helper.response(response, 500, error);
     }
-  }
+  },
 };
