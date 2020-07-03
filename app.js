@@ -13,7 +13,7 @@ const routeNavigator = require("./src/index");
 // cors
 app.use(cors());
 
-const server = app.listen(8080, "127.0.0.1", function () {
+const server = app.listen(process.env.PORT, "127.0.0.1", function () {
   const host = server.address().address;
   const port = server.address().port;
   console.log("Server Running at " + host + ": " + port);
