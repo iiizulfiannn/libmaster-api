@@ -3,7 +3,7 @@
 Libmaster API is RESTFULL API built with NodeJS using the ExpressJS Framework.
 It's integrated with MySQL Database.
 
-[![Node.js](https://img.shields.io/badge/Node.js-v.12.16.2-green.svg?style=rounded-square)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-v.12.16.2-grey.svg?style=rounded-square)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-4.17.1-blue.svg?style=rounded-square)](https://expressjs.com/en/starter/installing.html)
 
 ## Installation
