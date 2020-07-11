@@ -41,43 +41,43 @@ PORT=8080
 
 **1. GET**
 
-- `/books`
-- `/books?search=title&sort=genre1&page=1&limit=10&order=asc`
-- `/genres`
-- `/authors`
-- `/status`
-- `/users`
+-   `/books`
+-   `/books?search=title&sort=genre1&page=1&limit=10&order=asc`
+-   `/genres`
+-   `/authors`
+-   `/status`
+-   `/users`
 
 **2. POST**
 
-- `/books`
-  - `{ "id": "3", "title": "Title 3", "description": "About Title 3", "genre_id": 3, "genre_name": "Genre3", "author_id": 1, "author_name": "Author 1", "status_id": 2, "status_name": "Unvailable", "image": "book-1589707802155.jpg" } ...`
-- `/genres`
-  - `{"id": 1, "name": "Genre1"} ...`
-- `/authors`
-  - `{"id": 1, "name": "Author 1"} ...`
-- `/status`
-  - `{"id": 1, "name": "Available"} ...`
-- `/users`
-  - `{"id": 2, "fullname": "useradmin", "email": "admin@example.com", "role_id": 2, "role_name": "Admin"} ...`
+-   `/books`
+    -   `{ "id": "3", "title": "Title 3", "description": "About Title 3", "genre_id": 3, "genre_name": "Genre3", "author_id": 1, "author_name": "Author 1", "status_id": 2, "status_name": "Unvailable", "image": "book-1589707802155.jpg" } ...`
+-   `/genres`
+    -   `{"id": 1, "name": "Genre1"} ...`
+-   `/authors`
+    -   `{"id": 1, "name": "Author 1"} ...`
+-   `/status`
+    -   `{"id": 1, "name": "Available"} ...`
+-   `/users`
+    -   `{"id": 2, "fullname": "useradmin", "email": "admin@example.com", "role_id": 2, "role_name": "Admin"} ...`
 
 **3. PUT**
 
-- `/books/:id` (Update book by id)
-  - `{ "id": "4", "title": "Title 3" }`
-- `/genres/:id` (Update genre by id)
-  - `{ "id": "1", "name": "Genre 1" }`
-- `/authors/:id` (Update author by id)
-  - `{ "id": "1", "name": "Author 1" }`
-- `/statuss/:id` (Update status by id)
-  - `{ "id": "1", "name": "Available" }`
+-   `/books/:id` (Update book by id)
+    -   `{ "id": "4", "title": "Title 3" }`
+-   `/genres/:id` (Update genre by id)
+    -   `{ "id": "1", "name": "Genre 1" }`
+-   `/authors/:id` (Update author by id)
+    -   `{ "id": "1", "name": "Author 1" }`
+-   `/statuss/:id` (Update status by id)
+    -   `{ "id": "1", "name": "Available" }`
 
 **4. DELETE**
 
-- `/books/:id` (Delete book by id)
-- `/genres/:id` (Delete genre by id)
-- `/authors/:id` (Delete author by id)
-- `/status/:id` (Delete status by id)
+-   `/books/:id` (Delete book by id)
+-   `/genres/:id` (Delete genre by id)
+-   `/authors/:id` (Delete author by id)
+-   `/status/:id` (Delete status by id)
 
 # HTTP
 
@@ -88,13 +88,21 @@ PORT=8080
 
 # Packages
 
-- express
-- mysql
-- body-parser
-- nodemon
-- morgan
-- multer
-- cors
-- jsonwebtoken
-- bcrypt
-- dotenv
+-   express
+-   mysql
+-   body-parser
+-   nodemon
+-   morgan
+-   multer
+-   cors
+-   jsonwebtoken
+-   bcrypt
+-   dotenv
+
+# Release Backend
+
+-   [Backend API](https://libmaster.herokuapp.com/)
+
+# Releated Project
+
+-   [Libmaster Mobile](https://github.com/iiizulfiannn/libmaster-react-native)
