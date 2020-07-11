@@ -14,9 +14,9 @@ const routeNavigator = require("./src/index");
 app.use(cors());
 
 const server = app.listen(process.env.PORT, () => {
-    const host = server.address().address;
+    // const host = server.address().address;
     const port = server.address().port;
-    console.log("Server Running at " + host + ": " + port);
+    console.log("Server Running at port ", port);
 });
 
 // app.use(jsonParser) // has using qs in react
