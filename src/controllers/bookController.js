@@ -90,7 +90,8 @@ module.exports = {
                 ...request.body,
                 image: request.file.filename,
             };
-            const result = await bookModel.addBook(setData);
+            let result = await bookModel.addBook(setData);
+            result = await bookModel.getBook(result.id);
             return helper.response(response, 200, result);
         } catch (error) {
             console.log(error);
